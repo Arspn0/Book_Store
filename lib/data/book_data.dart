@@ -1,13 +1,64 @@
 import '../models/book.dart';
 
-final List<Map<String, String>> categories = [
-  {'id': 'all', 'title': 'All', 'icon': '📚'},
-  {'id': 'new', 'title': 'New', 'icon': 'assets/img/Book Cover New.png'},
-  {'id': 'kids', 'title': 'Kids', 'icon': '👶'},
-  {'id': 'romance', 'title': 'Romance', 'icon': '❤️'},
-  {'id': 'horror', 'title': 'Horror', 'icon': '👻'},
-  {'id': 'fantasy', 'title': 'Fantasy', 'icon': '🌟'},
-  {'id': 'fiction', 'title': 'Fiction', 'icon': '📖'},
+final List<Map<String, dynamic>> filters = [
+  {'icon': 'assets/img/Books.png', 'title': 'All'},
+  {'icon': 'assets/img/BooksNew.png', 'title': 'New'},
+  {'icon': 'assets/img/BooksKids.png', 'title': 'Kids'},
+  {'icon': 'assets/img/BooksRomance.png', 'title': 'Romance'},
+  {'icon': 'assets/img/BooksHorror.png', 'title': 'Horror'},
+  {'icon': 'assets/img/BooksFantasy.png', 'title': 'Fantasy'},
+  {'icon': 'assets/img/BooksFiction.png', 'title': 'Fiction'},
+];
+
+final List<Book> allBooks = [
+  Book(
+    id: '1',
+    title: 'The Lord of The Rings',
+    author: 'J.J Tolkien',
+    price: 80000,
+    isLiked: false,
+    imageUrl: 'assets/img/Lotr.png', // Correct path
+    category: 'fantasy',
+  ),
+  Book(
+    id: '2',
+    title: 'Pulang Pergi',
+    author: 'Tere Liye',
+    price: 70000,
+    isLiked: false,
+    imageUrl: 'assets/img/PP.png', // Correct path
+    category: 'fiction',
+  ),
+  Book(
+    id: '3',
+    title: 'Narnia',
+    author: 'C.S Lewis',
+    price: 65000,
+    isLiked: false,
+    imageUrl: 'assets/img/Narnia.png', // Correct path
+    category: 'fantasy',
+  ),
+  Book(
+    id: '4',
+    title: 'Komet Minor',
+    author: 'Tere Liye',
+    price: 45000,
+    isLiked: false,
+    imageUrl: 'assets/img/Komet-Minor.png', // Correct path
+    category: 'fiction',
+  ),
+];
+
+final List<Book> recomendedBooks = [
+  Book(
+    id: '1',
+    title: 'The Lord of The Rings',
+    author: 'J.J Tolkien',
+    price: 80000,
+    isLiked: false,
+    imageUrl: 'assets/img/Lotr.png', // Correct path
+    category: 'fantasy',
+  )
 ];
 
 final List<Book> popularBooks = [
@@ -38,11 +89,20 @@ final List<Book> popularBooks = [
     imageUrl: 'assets/img/Narnia.png', // Correct path
     category: 'fantasy',
   ),
+  Book(
+    id: '4',
+    title: 'The Lord of The Rings',
+    author: 'J.J Tolkien',
+    price: 80000,
+    isLiked: false,
+    imageUrl: 'assets/img/Lotr.png', // Correct path
+    category: 'fantasy',
+  ),
 ];
 
 final List<Book> trendingBooks = [
   Book(
-    id: '4',
+    id: '1',
     title: 'Komet Minor',
     author: 'Tere Liye',
     price: 45000,
@@ -51,7 +111,7 @@ final List<Book> trendingBooks = [
     category: 'fiction',
   ),
   Book(
-    id: '5',
+    id: '2',
     title: 'Laskar Pelangi',
     author: 'Andrea Hirata',
     price: 55000,
@@ -60,7 +120,7 @@ final List<Book> trendingBooks = [
     category: 'fiction',
   ),
   Book(
-    id: '6',
+    id: '3',
     title: 'Pulang Pergi',
     author: 'Tere Liye',
     price: 70000,
