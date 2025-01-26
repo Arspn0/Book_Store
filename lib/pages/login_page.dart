@@ -46,7 +46,7 @@ class _LoginPageState extends State<LoginPage> {
                 children: [
                   // App Logo or Title
                   Text(
-                    'BookWorm',
+                    'Login',
                     textAlign: TextAlign.center,
                     style: Theme.of(context).textTheme.titleLarge?.copyWith(
                           color: AppColors.text,
