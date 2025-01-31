@@ -3,7 +3,9 @@ class Book {
   final String title;
   final String author;
   final double price;
-  final bool isLiked;
+  bool isLiked;
+  bool isInWhistlist;
+  final String? description;
   final String imageUrl;
   final String category;
 
@@ -13,8 +15,18 @@ class Book {
     required this.author,
     required this.price,
     required this.isLiked,
+    required this.isInWhistlist,
+    this.description,
     required this.imageUrl,
     required this.category,
- 
- });
+  });
+
+  // Method to toggle the isLiked status
+  void toggleLike() {
+    isLiked = !isLiked;
+  }
+
+  void toggleWhistlist() {
+    isInWhistlist = !isInWhistlist;
+  }
 }
