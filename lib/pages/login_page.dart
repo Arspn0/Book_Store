@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import '../data/colors.dart';
-import '../pages/home_page.dart';
+import '../widgets/bottom_navbar.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -16,12 +16,11 @@ class _LoginPageState extends State<LoginPage> {
 
   void _login() {
     if (_formKey.currentState!.validate()) {
-      // Simple validation (you'd replace this with proper authentication)
       if (_usernameController.text == 'user123' && 
           _passwordController.text == 'password123') {
         Navigator.pushReplacement(
           context, 
-          MaterialPageRoute(builder: (context) => const HomePage()),
+          MaterialPageRoute(builder: (context) => const BottomNavBar()),
         );
       } else {
         ScaffoldMessenger.of(context).showSnackBar(
