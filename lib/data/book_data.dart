@@ -18,7 +18,7 @@ final List<Book> allBooks = [
     price: 80000,
     isLiked: false,
     isInWhistlist: false,
-    imageUrl: 'assets/img/Lotr.png', // Correct path
+    imageUrl: 'assets/img/Lotr.png',
     category: 'fantasy',
   ),
   Book(
@@ -28,7 +28,7 @@ final List<Book> allBooks = [
     price: 70000,
     isLiked: false,
     isInWhistlist: false,
-    imageUrl: 'assets/img/PP.png', // Correct path
+    imageUrl: 'assets/img/PP.png',
     category: 'fiction',
   ),
   Book(
@@ -38,7 +38,7 @@ final List<Book> allBooks = [
     price: 65000,
     isLiked: false,
     isInWhistlist: false,
-    imageUrl: 'assets/img/Narnia.png', // Correct path
+    imageUrl: 'assets/img/Narnia.png',
     category: 'fantasy',
   ),
   Book(
@@ -48,7 +48,7 @@ final List<Book> allBooks = [
     price: 45000,
     isLiked: false,
     isInWhistlist: false,
-    imageUrl: 'assets/img/Komet-Minor.png', // Correct path
+    imageUrl: 'assets/img/Komet-Minor.png',
     category: 'fiction',
   ),
 ];
@@ -61,7 +61,7 @@ final List<Book> recomendedBooks = [
     price: 80000,
     isLiked: false,
     isInWhistlist: false,
-    imageUrl: 'assets/img/Lotr.png', // Correct path
+    imageUrl: 'assets/img/Lotr.png',
     category: 'fantasy',
   ),
   Book(
@@ -71,7 +71,7 @@ final List<Book> recomendedBooks = [
     price: 70000,
     isLiked: false,
     isInWhistlist: false,
-    imageUrl: 'assets/img/PP.png', // Correct path
+    imageUrl: 'assets/img/PP.png',
     category: 'fiction',
   ),
   Book(
@@ -81,7 +81,7 @@ final List<Book> recomendedBooks = [
     price: 65000,
     isLiked: false,
     isInWhistlist: false,
-    imageUrl: 'assets/img/Narnia.png', // Correct path
+    imageUrl: 'assets/img/Narnia.png',
     category: 'fantasy',
   ),
   Book(
@@ -91,7 +91,7 @@ final List<Book> recomendedBooks = [
     price: 45000,
     isLiked: false,
     isInWhistlist: false,
-    imageUrl: 'assets/img/Komet-Minor.png', // Correct path
+    imageUrl: 'assets/img/Komet-Minor.png',
     category: 'fiction',
   ),
 ];
@@ -104,7 +104,7 @@ final List<Book> popularBooks = [
     price: 50000,
     isLiked: false,
     isInWhistlist: false,
-    imageUrl: 'assets/img/Hp1.png', // Correct path
+    imageUrl: 'assets/img/Hp1.png',
     category: 'fantasy',
   ),
   Book(
@@ -114,7 +114,7 @@ final List<Book> popularBooks = [
     price: 75000,
     isLiked: false,
     isInWhistlist: false,
-    imageUrl: 'assets/img/Hp2.png', // Correct path
+    imageUrl: 'assets/img/Hp2.png',
     category: 'fantasy',
   ),
   Book(
@@ -124,7 +124,7 @@ final List<Book> popularBooks = [
     price: 65000,
     isLiked: false,
     isInWhistlist: false,
-    imageUrl: 'assets/img/Narnia.png', // Correct path
+    imageUrl: 'assets/img/Narnia.png',
     category: 'fantasy',
   ),
   Book(
@@ -134,7 +134,7 @@ final List<Book> popularBooks = [
     price: 80000,
     isLiked: false,
     isInWhistlist: false,
-    imageUrl: 'assets/img/Lotr.png', // Correct path
+    imageUrl: 'assets/img/Lotr.png',
     category: 'fantasy',
   ),
 ];
@@ -147,7 +147,7 @@ final List<Book> trendingBooks = [
     price: 45000,
     isLiked: false,
     isInWhistlist: false,
-    imageUrl: 'assets/img/Komet-Minor.png', // Correct path
+    imageUrl: 'assets/img/Komet-Minor.png',
     category: 'fiction',
   ),
   Book(
@@ -157,7 +157,7 @@ final List<Book> trendingBooks = [
     price: 55000,
     isLiked: false,
     isInWhistlist: false,
-    imageUrl: 'assets/img/Laskar-Pelangi.png', // Correct path
+    imageUrl: 'assets/img/Laskar-Pelangi.png',
     category: 'fiction',
   ),
   Book(
@@ -167,7 +167,7 @@ final List<Book> trendingBooks = [
     price: 70000,
     isLiked: false,
     isInWhistlist: false,
-    imageUrl: 'assets/img/PP.png', // Correct path
+    imageUrl: 'assets/img/PP.png',
     category: 'fiction',
   ),
 ];
