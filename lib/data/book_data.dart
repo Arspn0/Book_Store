@@ -2,12 +2,12 @@ import '../models/book.dart';
 
 final List<Map<String, dynamic>> filters = [
   {'icon': 'assets/img/Books.png', 'title': 'All'},
-  {'icon': 'assets/img/BooksNew.png', 'title': 'New'},
-  {'icon': 'assets/img/BooksKids.png', 'title': 'Kids'},
-  {'icon': 'assets/img/BooksRomance.png', 'title': 'Romance'},
-  {'icon': 'assets/img/BooksHorror.png', 'title': 'Horror'},
-  {'icon': 'assets/img/BooksFantasy.png', 'title': 'Fantasy'},
-  {'icon': 'assets/img/BooksFiction.png', 'title': 'Fiction'},
+  {'icon': 'assets/img/BookNew.png', 'title': 'New'},
+  {'icon': 'assets/img/BookKids.png', 'title': 'Kids'},
+  {'icon': 'assets/img/BookRomance.png', 'title': 'Romance'},
+  {'icon': 'assets/img/BookHorror.png', 'title': 'Horror'},
+  {'icon': 'assets/img/BookFantasy.png', 'title': 'Fantasy'},
+  {'icon': 'assets/img/BookFiction.png', 'title': 'Fiction'},
 ];
 
 final List<Book> allBooks = [
@@ -17,6 +17,7 @@ final List<Book> allBooks = [
     author: 'J.J Tolkien',
     price: 80000,
     isLiked: false,
+    isInWhistlist: false,
     imageUrl: 'assets/img/Lotr.png', // Correct path
     category: 'fantasy',
   ),
@@ -26,6 +27,7 @@ final List<Book> allBooks = [
     author: 'Tere Liye',
     price: 70000,
     isLiked: false,
+    isInWhistlist: false,
     imageUrl: 'assets/img/PP.png', // Correct path
     category: 'fiction',
   ),
@@ -35,6 +37,7 @@ final List<Book> allBooks = [
     author: 'C.S Lewis',
     price: 65000,
     isLiked: false,
+    isInWhistlist: false,
     imageUrl: 'assets/img/Narnia.png', // Correct path
     category: 'fantasy',
   ),
@@ -44,6 +47,7 @@ final List<Book> allBooks = [
     author: 'Tere Liye',
     price: 45000,
     isLiked: false,
+    isInWhistlist: false,
     imageUrl: 'assets/img/Komet-Minor.png', // Correct path
     category: 'fiction',
   ),
@@ -56,9 +60,40 @@ final List<Book> recomendedBooks = [
     author: 'J.J Tolkien',
     price: 80000,
     isLiked: false,
+    isInWhistlist: false,
     imageUrl: 'assets/img/Lotr.png', // Correct path
     category: 'fantasy',
-  )
+  ),
+  Book(
+    id: '2',
+    title: 'Pulang Pergi',
+    author: 'Tere Liye',
+    price: 70000,
+    isLiked: false,
+    isInWhistlist: false,
+    imageUrl: 'assets/img/PP.png', // Correct path
+    category: 'fiction',
+  ),
+  Book(
+    id: '3',
+    title: 'Narnia',
+    author: 'C.S Lewis',
+    price: 65000,
+    isLiked: false,
+    isInWhistlist: false,
+    imageUrl: 'assets/img/Narnia.png', // Correct path
+    category: 'fantasy',
+  ),
+  Book(
+    id: '4',
+    title: 'Komet Minor',
+    author: 'Tere Liye',
+    price: 45000,
+    isLiked: false,
+    isInWhistlist: false,
+    imageUrl: 'assets/img/Komet-Minor.png', // Correct path
+    category: 'fiction',
+  ),
 ];
 
 final List<Book> popularBooks = [
@@ -68,6 +103,7 @@ final List<Book> popularBooks = [
     author: 'J.K Rowling',
     price: 50000,
     isLiked: false,
+    isInWhistlist: false,
     imageUrl: 'assets/img/Hp1.png', // Correct path
     category: 'fantasy',
   ),
@@ -77,6 +113,7 @@ final List<Book> popularBooks = [
     author: 'J.K Rowling',
     price: 75000,
     isLiked: false,
+    isInWhistlist: false,
     imageUrl: 'assets/img/Hp2.png', // Correct path
     category: 'fantasy',
   ),
@@ -86,6 +123,7 @@ final List<Book> popularBooks = [
     author: 'C.S Lewis',
     price: 65000,
     isLiked: false,
+    isInWhistlist: false,
     imageUrl: 'assets/img/Narnia.png', // Correct path
     category: 'fantasy',
   ),
@@ -95,6 +133,7 @@ final List<Book> popularBooks = [
     author: 'J.J Tolkien',
     price: 80000,
     isLiked: false,
+    isInWhistlist: false,
     imageUrl: 'assets/img/Lotr.png', // Correct path
     category: 'fantasy',
   ),
@@ -107,6 +146,7 @@ final List<Book> trendingBooks = [
     author: 'Tere Liye',
     price: 45000,
     isLiked: false,
+    isInWhistlist: false,
     imageUrl: 'assets/img/Komet-Minor.png', // Correct path
     category: 'fiction',
   ),
@@ -116,7 +156,8 @@ final List<Book> trendingBooks = [
     author: 'Andrea Hirata',
     price: 55000,
     isLiked: false,
-    imageUrl: 'assets/img/Komet-Minor.png', // Correct path
+    isInWhistlist: false,
+    imageUrl: 'assets/img/Laskar-Pelangi.png', // Correct path
     category: 'fiction',
   ),
   Book(
@@ -125,6 +166,7 @@ final List<Book> trendingBooks = [
     author: 'Tere Liye',
     price: 70000,
     isLiked: false,
+    isInWhistlist: false,
     imageUrl: 'assets/img/PP.png', // Correct path
     category: 'fiction',
   ),
