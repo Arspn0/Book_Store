@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
+import 'package:flutter/services.dart';
+import 'dart:ui';
 import '../models/book.dart';
-import '../data/book_data.dart'; // Import the book_data.dart file
+import '../data/book_data.dart';
 import '../data/colors.dart';
 import '../widgets/book_card.dart';
+import '../widgets/book_panel.dart';
+import '../pages/cart_page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -13,29 +17,19 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  int _selectedIndex = 0;
   String _selectedCategory = 'All';
 
-  // Bottom navigation bar items
-  static const List<Widget> _widgetOptions = <Widget>[
-    Text('Home'),
-    Text('Whistlist'),
-    Text('Favorites'),
-    Text('Profile'),
-  ];
-
-  void _onItemTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
-  }
-
-  // Filter books by category
-  List<Book> _filterBooksByCategory(String category) {
-    if (category == 'All') {
-      return allBooks; // Use the allBooks list here
-    }
-    return allBooks.where((book) => book.category == category.toLowerCase()).toList();
+  void _showBookDetails(BuildContext context, Book book) {
+    showModalBottomSheet(
+      context: context,
+      isScrollControlled: true,
+      backgroundColor: Colors.transparent,
+      builder: (context) {
+        return BookPanel(
+          book: book,
+        );
+      },
+    );
   }
 
   @override
@@ -59,7 +53,10 @@ class _HomePageState extends State<HomePage> {
             IconButton(
               icon: const Icon(Iconsax.shopping_cart),
               onPressed: () {
-                // Navigate to cart
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const CartPage()),
+                );
               },
             ),
             const CircleAvatar(
@@ -82,101 +79,61 @@ class _HomePageState extends State<HomePage> {
                   filled: true,
                   fillColor: Colors.white,
                   border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(12),
+                    borderRadius: BorderRadius.circular(50),
                     borderSide: BorderSide.none,
                   ),
                 ),
               ),
             ),
 
-            // Filter Chips
-            SizedBox(
-              height: 100,
-              child: ListView.builder(
-                scrollDirection: Axis.horizontal,
-                itemCount: filters.length,
-                itemBuilder: (context, index) {
-                  final filter = filters[index];
-                  return GestureDetector(
-                    onTap: () {
-                      setState(() {
-                        _selectedCategory = filter['title'];
-                      });
-                    },
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                      child: Column(
-                        children: [
-                          Image.asset(
-                            filter['icon'],
-                            width: 40,
-                            height: 40,
-                          ),
-                          const SizedBox(height: 4),
-                          Text(
-                            filter['title'],
-                            style: TextStyle(
-                              color: _selectedCategory == filter['title']
-                                  ? AppColors.primary
-                                  : AppColors.textLight,
-                              fontSize: 12,
+            // Categories
+            Center(
+              child: SizedBox(
+                height: 60,
+                child: ListView.builder(
+                  scrollDirection: Axis.horizontal,
+                  itemCount: filters.length,
+                  itemBuilder: (context, index) {
+                    final filter = filters[index];
+                    return GestureDetector(
+                      onTap: () {
+                        setState(() {
+                          _selectedCategory = filter['title'];
+                        });
+                      },
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                        child: Column(
+                          children: [
+                            Image.asset(
+                              filter['icon'],
+                              width: 40,
+                              height: 40,
                             ),
-                          ),
-                        ],
+                            const SizedBox(height: 4),
+                            Text(
+                              filter['title'],
+                              style: TextStyle(
+                                color: _selectedCategory == filter['title']
+                                    ? AppColors.primary
+                                    : AppColors.textLight,
+                                fontSize: 12,
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
-                    ),
-                  );
-                },
+                    );
+                  },
+                ),
               ),
             ),
 
-            // Recommended Section
+            // Book Sections
             _buildSection('Recommended', recomendedBooks),
-            // Popular Section
             _buildSection('Popular', popularBooks),
-            // Trending Section
             _buildSection('Trending', trendingBooks),
           ],
-        ),
-      ),
-      bottomNavigationBar: AnimatedContainer(
-        duration: const Duration(milliseconds: 300),
-        curve: Curves.easeInOut,
-        height: 60,
-        decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: const BorderRadius.vertical(top: Radius.circular(20)),
-          boxShadow: [
-            BoxShadow(
-              color: Colors.black.withOpacity(0.1),
-              blurRadius: 10,
-            ),
-          ],
-        ),
-        child: BottomNavigationBar(
-          items: const <BottomNavigationBarItem>[
-            BottomNavigationBarItem(
-              icon: Icon(Iconsax.home),
-              label: 'Home',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Iconsax.heart),
-              label: 'Whistlist',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Iconsax.save_2),
-              label: 'Favorites',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Iconsax.profile_circle),
-              label: 'Profile',
-            ),
-          ],
-          currentIndex: _selectedIndex,
-          selectedItemColor: AppColors.primary,
-          unselectedItemColor: AppColors.textLight,
-          onTap: _onItemTapped,
-          type: BottomNavigationBarType.fixed,
         ),
       ),
     );
@@ -200,9 +157,7 @@ class _HomePageState extends State<HomePage> {
               ),
               const Spacer(),
               TextButton(
-                onPressed: () {
-                  // Navigate to view all
-                },
+                onPressed: () {},
                 child: Text(
                   'View All',
                   style: TextStyle(
@@ -221,7 +176,10 @@ class _HomePageState extends State<HomePage> {
               itemCount: books.length,
               itemBuilder: (context, index) {
                 final book = books[index];
-                return BookCard(book: book);
+                return BookCard(
+                  book: book,
+                  onTap: () => _showBookDetails(context, book),
+                );
               },
             ),
           ),
