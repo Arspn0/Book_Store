@@ -24,7 +24,7 @@ class FavoritesPage extends StatelessWidget {
               'Favorites',
               style: TextStyle(
                 color: AppColors.text,
-                fontSize: 20,
+                fontSize: 24,
                 fontWeight: FontWeight.bold,
               ),
             ),

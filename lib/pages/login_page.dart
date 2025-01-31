@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:iconsax/iconsax.dart';
 import '../data/colors.dart';
 import '../widgets/bottom_navbar.dart';
 
@@ -24,7 +25,14 @@ class _LoginPageState extends State<LoginPage> {
         );
       } else {
         ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text('Invalid username or password')),
+          const SnackBar(content: Text(
+            'Invalid username or password',
+            style: TextStyle(
+                  fontFamily: "Poppins",
+                  fontSize: 16,
+                  fontWeight: FontWeight.bold,
+            ),
+            )),
         );
       }
     }
@@ -48,18 +56,22 @@ class _LoginPageState extends State<LoginPage> {
                     'Login',
                     textAlign: TextAlign.center,
                     style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                          fontFamily: "Poppins",
                           color: AppColors.text,
-                          fontSize: 32,
+                          fontSize: 40,
                         ),
                   ),
                   const SizedBox(height: 32),
 
                   // Username Field
                   TextFormField(
+                    style: TextStyle(
+                      fontFamily: "Poppins"
+                    ),
                     controller: _usernameController,
                     decoration: InputDecoration(
                       labelText: 'Username',
-                      prefixIcon: Icon(Icons.person, color: AppColors.primary),
+                      prefixIcon: Icon(Iconsax.user, color: AppColors.primary),
                     ),
                     validator: (value) {
                       if (value == null || value.isEmpty) {
@@ -72,11 +84,14 @@ class _LoginPageState extends State<LoginPage> {
 
                   // Password Field
                   TextFormField(
+                    style: TextStyle(
+                      fontFamily: "Poppins"
+                    ),
                     controller: _passwordController,
                     obscureText: true,
                     decoration: InputDecoration(
                       labelText: 'Password',
-                      prefixIcon: Icon(Icons.lock, color: AppColors.primary),
+                      prefixIcon: Icon(Iconsax.lock, color: AppColors.primary),
                     ),
                     validator: (value) {
                       if (value == null || value.isEmpty) {
@@ -90,7 +105,13 @@ class _LoginPageState extends State<LoginPage> {
                   // Login Button
                   ElevatedButton(
                     onPressed: _login,
-                    child: const Text('Login'),
+                    child: const Text(
+                      'Login',
+                      style: TextStyle(
+                        fontFamily: "Poppins",
+                        fontSize: 18,
+                        ),
+                      ),
                   ),
                 ],
               ),

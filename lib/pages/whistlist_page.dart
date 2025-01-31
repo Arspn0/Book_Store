@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import '../data/colors.dart';
 import '../widgets/book_card.dart';
 import '../widgets/book_panel.dart';
 import '../models/book.dart';
 import '../data/book_data.dart';
 import '../provider/wishlist_provider.dart';
-import 'package:provider/provider.dart';
 
 class WishlistPage extends StatefulWidget {
   const WishlistPage({Key? key}) : super(key: key);
@@ -36,10 +36,17 @@ class _WishlistPageState extends State<WishlistPage> {
   }
 
   void _handleAddToCart(Book book) {
-    // Implement cart functionality here
+    // Implement cart functionality
     ScaffoldMessenger.of(context).showSnackBar(
       const SnackBar(
-        content: Text('Added to Cart!'),
+        content: Text(
+          'Added to Cart!',
+          style: (
+            TextStyle(
+              fontFamily: "Poppins",
+            )
+          ),
+        ),
       ),
     );
   }
@@ -59,7 +66,7 @@ class _WishlistPageState extends State<WishlistPage> {
               'Wishlist',
               style: TextStyle(
                 color: AppColors.text,
-                fontSize: 20,
+                fontSize: 24,
                 fontWeight: FontWeight.bold,
               ),
             ),
@@ -69,6 +76,7 @@ class _WishlistPageState extends State<WishlistPage> {
                   child: Text(
                     'No books in your wishlist yet!',
                     style: TextStyle(
+                      fontFamily: "Poppins",
                       color: AppColors.textLight,
                       fontSize: 16,
                     ),

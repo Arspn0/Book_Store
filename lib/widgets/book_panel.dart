@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:iconsax/iconsax.dart';
 import '../models/book.dart';
 import '../data/colors.dart';
 import '../provider/wishlist_provider.dart';
@@ -49,9 +50,9 @@ class _BookPanelState extends State<BookPanel> {
                 child: ClipRRect(
                   child: Image.asset(
                     widget.book.imageUrl,
-                    height: 200,
+                    height: 215,
                     width: 150,
-                    fit: BoxFit.cover,
+                    fit: BoxFit.fill,
                   ),
                 ),
               ),
@@ -60,6 +61,7 @@ class _BookPanelState extends State<BookPanel> {
               Text(
                 widget.book.title,
                 style: const TextStyle(
+                  fontFamily: "Poppins",
                   fontSize: 20,
                   fontWeight: FontWeight.bold,
                 ),
@@ -69,6 +71,7 @@ class _BookPanelState extends State<BookPanel> {
               Text(
                 widget.book.author,
                 style: TextStyle(
+                  fontFamily: "Poppins",
                   color: AppColors.textLight,
                   fontSize: 14,
                 ),
@@ -78,16 +81,18 @@ class _BookPanelState extends State<BookPanel> {
               Text(
                 'Rp${widget.book.price.toStringAsFixed(0)}',
                 style: TextStyle(
+                  fontFamily: "Poppins",
                   color: AppColors.text,
                   fontSize: 18,
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              const SizedBox(height: 16),
+              const SizedBox(height: 30),
               // Book Description
               const Text(
                 'Description',
                 style: TextStyle(
+                  fontFamily: "Poppins",
                   fontSize: 16,
                   fontWeight: FontWeight.bold,
                 ),
@@ -96,15 +101,17 @@ class _BookPanelState extends State<BookPanel> {
               Text(
                 widget.book.description ?? 'No description available.',
                 style: const TextStyle(
+                  fontFamily: "Poppins",
                   fontSize: 14,
                   color: Colors.grey,
                 ),
               ),
-              const SizedBox(height: 16),
+              const SizedBox(height: 30),
               // Reviews Section
               const Text(
                 'Reviews',
                 style: TextStyle(
+                  fontFamily: "Poppins",
                   fontSize: 16,
                   fontWeight: FontWeight.bold,
                 ),
@@ -113,6 +120,7 @@ class _BookPanelState extends State<BookPanel> {
               const Text(
                 'No reviews yet.',
                 style: TextStyle(
+                  fontFamily: "Poppins",
                   fontSize: 14,
                   color: Colors.grey,
                 ),
@@ -124,8 +132,8 @@ class _BookPanelState extends State<BookPanel> {
                   IconButton(
                     icon: Icon(
                       widget.book.isInWhistlist
-                          ? Icons.bookmark
-                          : Icons.bookmark_outline,
+                          ? Iconsax.save_minus
+                          : Iconsax.save_add,
                       color: widget.book.isInWhistlist
                           ? AppColors.primary
                           : AppColors.textLight,
@@ -139,6 +147,9 @@ class _BookPanelState extends State<BookPanel> {
                             widget.book.isInWhistlist
                                 ? 'Added to Wishlist!'
                                 : 'Removed from Wishlist!',
+                                style: TextStyle(
+                                  fontFamily: "Poppins",
+                                ),
                           ),
                         ),
                       );
@@ -147,7 +158,7 @@ class _BookPanelState extends State<BookPanel> {
                   // In BookPanel class, update the heart icon button:
                   IconButton(
                     icon: Icon(
-                      widget.book.isLiked ? Icons.favorite : Icons.favorite_border,
+                      widget.book.isLiked ? Iconsax.heart5 : Iconsax.heart_add,
                       color: widget.book.isLiked ? Colors.red : AppColors.textLight,
                       size: 28,
                     ),
@@ -160,6 +171,9 @@ class _BookPanelState extends State<BookPanel> {
                             widget.book.isLiked
                                 ? 'Added to Favorites!'
                                 : 'Removed from Favorites!',
+                                style: TextStyle(
+                                  fontFamily: "Poppins",
+                                ),
                           ),
                         ),
                       );
@@ -174,7 +188,13 @@ class _BookPanelState extends State<BookPanel> {
                         cartProvider.addToCart(widget.book);
                         ScaffoldMessenger.of(context).showSnackBar(
                           const SnackBar(
-                            content: Text('Added to Cart!'),
+                            content: Text(
+                              'Added to Cart!',
+                              style: TextStyle(
+                                fontFamily: "Poppins",
+                                fontSize: 20,
+                              ),
+                              ),
                           ),
                         );
                         Navigator.pop(context);
@@ -183,14 +203,14 @@ class _BookPanelState extends State<BookPanel> {
                         backgroundColor: AppColors.secondary,
                         padding: const EdgeInsets.symmetric(vertical: 16),
                         shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(12),
+                          borderRadius: BorderRadius.circular(35),
                         ),
                       ),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: const [
                           Icon(
-                            Icons.shopping_cart_outlined,
+                            Iconsax.shopping_cart4,
                             color: Colors.white,
                             size: 20,
                           ),

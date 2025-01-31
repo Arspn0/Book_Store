@@ -1,6 +1,6 @@
-// cart_page.dart
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:iconsax/iconsax.dart';
 import '../data/colors.dart';
 import '../provider/cart_provider.dart';
 
@@ -20,7 +20,7 @@ class CartPage extends StatelessWidget {
               'Shopping Cart',
               style: TextStyle(
                 color: AppColors.text,
-                fontSize: 20,
+                fontSize: 24,
                 fontWeight: FontWeight.bold,
               ),
             ),
@@ -30,6 +30,7 @@ class CartPage extends StatelessWidget {
                   child: Text(
                     'Your cart is empty!',
                     style: TextStyle(
+                      fontFamily: "Poppins",
                       color: AppColors.textLight,
                       fontSize: 16,
                     ),
@@ -53,12 +54,11 @@ class CartPage extends StatelessWidget {
                                 children: [
                                   // Book Image
                                   ClipRRect(
-                                    borderRadius: BorderRadius.circular(8),
                                     child: Image.asset(
                                       book.imageUrl,
-                                      height: 80,
+                                      height: 85,
                                       width: 60,
-                                      fit: BoxFit.cover,
+                                      fit: BoxFit.fill,
                                     ),
                                   ),
                                   const SizedBox(width: 12),
@@ -70,6 +70,7 @@ class CartPage extends StatelessWidget {
                                         Text(
                                           book.title,
                                           style: const TextStyle(
+                                            fontFamily: "Poppins",
                                             fontWeight: FontWeight.bold,
                                             fontSize: 16,
                                           ),
@@ -78,6 +79,7 @@ class CartPage extends StatelessWidget {
                                         Text(
                                           book.author,
                                           style: TextStyle(
+                                            fontFamily: "Poppins",
                                             color: AppColors.textLight,
                                             fontSize: 14,
                                           ),
@@ -86,6 +88,7 @@ class CartPage extends StatelessWidget {
                                         Text(
                                           'Rp${book.price.toStringAsFixed(0)}',
                                           style: TextStyle(
+                                            fontFamily: "Poppins",
                                             color: AppColors.text,
                                             fontWeight: FontWeight.bold,
                                           ),
@@ -97,18 +100,19 @@ class CartPage extends StatelessWidget {
                                   Row(
                                     children: [
                                       IconButton(
-                                        icon: const Icon(Icons.remove_circle_outline),
+                                        icon: const Icon(Iconsax.minus_cirlce),
                                         onPressed: () => cartProvider.removeFromCart(book),
                                       ),
                                       Text(
                                         quantity.toString(),
                                         style: const TextStyle(
+                                          fontFamily: "Poppins",
                                           fontSize: 16,
                                           fontWeight: FontWeight.bold,
                                         ),
                                       ),
                                       IconButton(
-                                        icon: const Icon(Icons.add_circle_outline),
+                                        icon: const Icon(Iconsax.add_circle),
                                         onPressed: () => cartProvider.addToCart(book),
                                       ),
                                     ],
@@ -124,6 +128,7 @@ class CartPage extends StatelessWidget {
                     Container(
                       padding: const EdgeInsets.all(16),
                       decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(8),
                         color: Colors.white,
                         boxShadow: [
                           BoxShadow(
@@ -139,16 +144,26 @@ class CartPage extends StatelessWidget {
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              const Text('Subtotal'),
-                              Text('Rp${cartProvider.subtotal.toStringAsFixed(0)}'),
+                              Text(
+                                'Subtotal',
+                                style: TextStyle(
+                                  fontFamily: "Poppins",    
+                                ),
+                              ),
+                              Text('Rp${cartProvider.subtotal.toStringAsFixed(0)}', style: TextStyle(fontFamily: "Poppins")),
                             ],
                           ),
                           const SizedBox(height: 8),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              const Text('Tax (11%)'),
-                              Text('Rp${cartProvider.tax.toStringAsFixed(0)}'),
+                              const Text(
+                                'Tax (11%)',
+                                style: TextStyle(
+                                  fontFamily: "Poppins",    
+                                ),
+                                ),
+                              Text('Rp${cartProvider.tax.toStringAsFixed(0)}', style: TextStyle(fontFamily: "Poppins" )),
                             ],
                           ),
                           const Divider(height: 24),
@@ -158,6 +173,7 @@ class CartPage extends StatelessWidget {
                               const Text(
                                 'Total',
                                 style: TextStyle(
+                                  fontFamily: "Poppins", 
                                   fontWeight: FontWeight.bold,
                                   fontSize: 18,
                                 ),
@@ -165,6 +181,7 @@ class CartPage extends StatelessWidget {
                               Text(
                                 'Rp${cartProvider.total.toStringAsFixed(0)}',
                                 style: const TextStyle(
+                                  fontFamily: "Poppins", 
                                   fontWeight: FontWeight.bold,
                                   fontSize: 18,
                                 ),
@@ -184,7 +201,13 @@ class CartPage extends StatelessWidget {
                                       children: const [
                                         CircularProgressIndicator(),
                                         SizedBox(width: 16),
-                                        Text('Your order is being processed...'),
+                                        Text(
+                                          'Your order is being processed...',
+                                          style: TextStyle(
+                                            fontFamily: "Poppins", 
+                                            fontSize: 12,
+                                          ),
+                                          ),
                                       ],
                                     ),
                                   );
@@ -202,7 +225,13 @@ class CartPage extends StatelessWidget {
                                 // Show success message and navigate back
                                 ScaffoldMessenger.of(context).showSnackBar(
                                   const SnackBar(
-                                    content: Text('Order completed successfully!'),
+                                    content: Text(
+                                      'Order completed successfully!',
+                                      style: TextStyle(
+                                        fontFamily: "Poppins", 
+                                        fontSize: 16,
+                                      ),
+                                      ),
                                   ),
                                 );
                                 Navigator.of(context).pop();
@@ -212,7 +241,7 @@ class CartPage extends StatelessWidget {
                               backgroundColor: AppColors.primary,
                               padding: const EdgeInsets.symmetric(vertical: 16),
                               shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(12),
+                                borderRadius: BorderRadius.circular(35),
                               ),
                             ),
                             child: const Text(

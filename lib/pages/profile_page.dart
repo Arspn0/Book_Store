@@ -1,5 +1,5 @@
-// profile_page.dart
 import 'package:flutter/material.dart';
+import 'package:iconsax/iconsax.dart';
 import '../data/colors.dart';
 
 class ProfilePage extends StatelessWidget {
@@ -12,13 +12,25 @@ class ProfilePage extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: AppColors.background,
         elevation: 0,
-        title: const Text(
-          'Profile',
-          style: TextStyle(
-            color: AppColors.text,
-            fontSize: 20,
-            fontWeight: FontWeight.bold,
-          ),
+        title: Row(
+          children: [
+            Text(
+              'Profile',
+              style: TextStyle(
+                color: AppColors.text,
+                fontSize: 24,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            const Spacer(),
+            IconButton(
+              icon: const Icon(Iconsax.setting_2),
+              onPressed: () {},
+              style: ButtonStyle(
+                backgroundColor: MaterialStateProperty.all(AppColors.accent),
+              ),
+            ),
+          ],
         ),
       ),
       body: Padding(
@@ -34,7 +46,7 @@ class ProfilePage extends StatelessWidget {
               child: Column(
                 children: [
                   _buildMenuItem(
-                    icon: Icons.shopping_bag_outlined,
+                    icon: Iconsax.shopping_bag,
                     title: 'Purchase History',
                     onTap: () {
                       // Navigate to Purchase History
@@ -42,7 +54,7 @@ class ProfilePage extends StatelessWidget {
                   ),
                   const Divider(height: 1, indent: 56),
                   _buildMenuItem(
-                    icon: Icons.person_outline,
+                    icon: Iconsax.user,
                     title: 'Profile Settings',
                     onTap: () {
                       // Navigate to Profile Settings
@@ -50,7 +62,7 @@ class ProfilePage extends StatelessWidget {
                   ),
                   const Divider(height: 1, indent: 56),
                   _buildMenuItem(
-                    icon: Icons.privacy_tip_outlined,
+                    icon: Iconsax.security_user,
                     title: 'Legal & Privacy',
                     onTap: () {
                       // Navigate to Legal & Privacy
@@ -58,7 +70,7 @@ class ProfilePage extends StatelessWidget {
                   ),
                   const Divider(height: 1, indent: 56),
                   _buildMenuItem(
-                    icon: Icons.help_outline,
+                    icon: Iconsax.information,
                     title: 'Help',
                     onTap: () {
                       // Navigate to Help
@@ -77,21 +89,40 @@ class ProfilePage extends StatelessWidget {
                   showDialog(
                     context: context,
                     builder: (context) => AlertDialog(
-                      title: const Text('Logout'),
-                      content: const Text('Are you sure you want to logout?'),
+                      title: const Text(
+                        'Logout',
+                        style: TextStyle(
+                          fontFamily: "Poppins",
+                        ),
+                      ),
+                      content: const Text(
+                        'Are you sure you want to logout?',
+                        style: TextStyle(
+                          fontFamily: "Poppins",
+                        ),
+                      ),
                       actions: [
                         TextButton(
                           onPressed: () => Navigator.pop(context),
-                          child: const Text('Cancel'),
+                          child: const Text(
+                            'Cancel',
+                            style: TextStyle(
+                              fontFamily: "Poppins",
+                            ),
+                          ),
                         ),
                         TextButton(
                           onPressed: () {
-                            // Implement logout logic here
-                            Navigator.pop(context);
+                            // Navigator.push(
+                            //   context,
+                            //   MaterialPageRoute(
+                            //       builder: (context) => const LoginPage()),
+                            // );
                           },
                           child: const Text(
                             'Logout',
-                            style: TextStyle(color: Colors.red),
+                            style: TextStyle(
+                                fontFamily: "Poppins", color: Colors.red),
                           ),
                         ),
                       ],
@@ -102,7 +133,7 @@ class ProfilePage extends StatelessWidget {
                   backgroundColor: AppColors.secondary,
                   padding: const EdgeInsets.symmetric(vertical: 16),
                   shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(12),
+                    borderRadius: BorderRadius.circular(35),
                   ),
                 ),
                 child: const Text(
@@ -136,7 +167,7 @@ class ProfilePage extends StatelessWidget {
               padding: const EdgeInsets.all(8),
               decoration: BoxDecoration(
                 color: Colors.white,
-                borderRadius: BorderRadius.circular(8),
+                borderRadius: BorderRadius.circular(35),
               ),
               child: Icon(
                 icon,
@@ -149,13 +180,14 @@ class ProfilePage extends StatelessWidget {
               child: Text(
                 title,
                 style: const TextStyle(
+                  fontFamily: "Poppins",
                   fontSize: 16,
                   fontWeight: FontWeight.w500,
                 ),
               ),
             ),
             const Icon(
-              Icons.chevron_right,
+              Iconsax.arrow_right_34,
               color: AppColors.textLight,
             ),
           ],

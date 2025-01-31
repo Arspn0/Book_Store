@@ -45,7 +45,7 @@ class _HomePageState extends State<HomePage> {
               'Hi, User!',
               style: TextStyle(
                 color: AppColors.text,
-                fontSize: 20,
+                fontSize: 24,
                 fontWeight: FontWeight.bold,
               ),
             ),
@@ -73,6 +73,9 @@ class _HomePageState extends State<HomePage> {
             Padding(
               padding: const EdgeInsets.all(16.0),
               child: TextField(
+                style: TextStyle(
+                      fontFamily: "Poppins"
+                ),
                 decoration: InputDecoration(
                   hintText: 'Search books...',
                   prefixIcon: const Icon(Iconsax.search_normal),
@@ -114,6 +117,7 @@ class _HomePageState extends State<HomePage> {
                             Text(
                               filter['title'],
                               style: TextStyle(
+                                fontFamily: "Poppins",
                                 color: _selectedCategory == filter['title']
                                     ? AppColors.primary
                                     : AppColors.textLight,
@@ -150,6 +154,7 @@ class _HomePageState extends State<HomePage> {
               Text(
                 title,
                 style: TextStyle(
+                  fontFamily: "Poppins",
                   color: AppColors.text,
                   fontSize: 18,
                   fontWeight: FontWeight.bold,
@@ -157,10 +162,14 @@ class _HomePageState extends State<HomePage> {
               ),
               const Spacer(),
               TextButton(
+                style: ButtonStyle(
+                  backgroundColor: MaterialStateProperty.all(AppColors.accent),
+                ),
                 onPressed: () {},
                 child: Text(
                   'View All',
                   style: TextStyle(
+                    fontFamily: "Poppins",
                     color: AppColors.primary,
                     fontWeight: FontWeight.bold,
                   ),

@@ -13,7 +13,7 @@ class BookCard extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        width: 160,
+        width: 130,
         margin: const EdgeInsets.symmetric(horizontal: 8),
         decoration: BoxDecoration(
           color: Colors.white,
@@ -25,13 +25,11 @@ class BookCard extends StatelessWidget {
             // Book Image
             Center(
               child: ClipRRect(
-                // borderRadius:
-                //     const BorderRadius.vertical(top: Radius.circular(12)),
                 child: Image.asset(
                   book.imageUrl,
                   height: 140,
                   width: 100,
-                  fit: BoxFit.cover,
+                  fit: BoxFit.fill,
                 ),
               ),
             ),
@@ -46,6 +44,7 @@ class BookCard extends StatelessWidget {
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
                     style: const TextStyle(
+                      fontFamily: "Poppins",
                       fontWeight: FontWeight.bold,
                       fontSize: 14,
                     ),
@@ -57,6 +56,7 @@ class BookCard extends StatelessWidget {
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
                     style: TextStyle(
+                      fontFamily: "Poppins",
                       color: AppColors.textLight,
                       fontSize: 12,
                     ),
@@ -66,6 +66,7 @@ class BookCard extends StatelessWidget {
                   Text(
                     'Rp${book.price.toStringAsFixed(0)}',
                     style: TextStyle(
+                      fontFamily: "Poppins",
                       color: AppColors.text,
                       fontWeight: FontWeight.bold,
                       fontSize: 14,
