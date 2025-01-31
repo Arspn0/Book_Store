@@ -21,7 +21,6 @@ class Book {
     required this.category,
   });
 
-  // Method to toggle the isLiked status
   void toggleLike() {
     isLiked = !isLiked;
   }
